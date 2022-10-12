@@ -1,0 +1,18 @@
+<br>
+<button (click)="logout()" class="float-right btn btn-outline-danger">Logout</button>
+
+<div class="text-center">
+    <h1 class="titulo">{{title}}</h1>
+</div>
+
+<div class="row row-cols-1 row-cols-md-4">
+    <div class="col mb-4" *ngFor="let serie of series |async">
+      <div class="card h-100 bg-dark text-white text-center p-3" >
+        <img src="{{serie.thumbnail.path}}.{{serie.thumbnail.extension}}" class="card-img-top" alt="{{serie.name}}">
+        <div class="card-body">
+            <h5 class="card-title">{{serie.title}}</h5>
+            <button (click)="getSeries(serie.id)" class="btn btn-outline-primary btn-block">Details</button>         
+        </div>
+      </div>
+    </div>
+</div>  

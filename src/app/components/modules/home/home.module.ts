@@ -8,6 +8,8 @@ import { SerieComponent } from './pages/serie/serie.component';
 import { SeriesComponent } from './pages/series/series.component';
 import { HomeRoutingModule } from './home-routing.module';
 import { MaterialModule } from 'src/app/shared/material.module';
+import { HomeComponent } from './pages/home/home.component';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -18,12 +20,14 @@ import { MaterialModule } from 'src/app/shared/material.module';
     ComicComponent,
     ComicsComponent,
     SerieComponent,
-    SeriesComponent
+    SeriesComponent,
+    HomeComponent
   ],
   imports: [
     CommonModule,
     HomeRoutingModule,
-    MaterialModule
+    MaterialModule,
+    FormsModule
   ]
 })
 export class HomeModule { }

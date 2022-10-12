@@ -7,11 +7,16 @@ import { ComicsComponent } from './pages/comics/comics.component';
 import { ComicComponent } from './pages/comic/comic.component';
 import { CharacterComponent } from './pages/character/character.component';
 import { CharactersComponent } from './pages/characters/characters.component';
+import { HomeComponent } from './pages/home/home.component';
 
 const routes: Routes = [
   {
     path: '',
     children : [
+      {
+        path : 'home',
+        component : HomeComponent
+      },
       {
         path : 'characters',
         component : CharactersComponent

@@ -1,28 +1,27 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { AuthService } from 'src/app/services/auth.service';
+import { Observable, tap } from 'rxjs';
 import { MarvelService } from 'src/app/services/marvel.service';
 
 @Component({
-  selector: 'app-character',
-  templateUrl: './character.component.html',
-  styleUrls: ['./character.component.scss']
+  selector: 'app-home',
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.scss']
 })
-export class CharacterComponent implements OnInit {
+export class HomeComponent implements OnInit {
 
+  
+  character$!: Observable<any>
   title : string = 'Name';
-  idCharacter : string = '';
+  idCharacter : string = '1009146';
   character : any = {};
   characterDesc = '';
 
-  constructor( public authService : AuthService, private marvelService : MarvelService, private activatedRoute: ActivatedRoute, private router :Router) { 
-
-    this.activatedRoute.params.subscribe( params => {
-      this.idCharacter = params['id'];
-    });
+  constructor(public marvelService: MarvelService, private activatedRoute: ActivatedRoute, private router : Router) { 
+    
   }
 
-  ngOnInit() {
+  ngOnInit(): void { 
     this.getIdCharacter();
   }
 
@@ -31,7 +30,6 @@ export class CharacterComponent implements OnInit {
   }
 
   getIdCharacter(){
-    console.log('ID: ',this.idCharacter);
     this.marvelService.getCharacter(this.idCharacter).subscribe({
       next : (res) => {
         let dataCharacter = {
@@ -58,5 +56,6 @@ export class CharacterComponent implements OnInit {
       }
     })
   }
+
 
 }

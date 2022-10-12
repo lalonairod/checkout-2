@@ -1,0 +1,19 @@
+<div class="text-center">
+    <h1 class="titulo">{{title}}:<small>{{character.name}}</small></h1>
+</div>
+
+<div class="row">
+    <div class="col-sm-6" align="center">
+        <img src="{{character.thumbnailPath}}.{{character.thumbnailExtension}}" class="img-thumbnail">
+    </div>
+
+    <div class="col-sm-6">
+        <p><strong>DESCRIPTION: </strong> {{characterDesc}}</p>
+        <p><strong>MODIFIED: </strong> {{character.modified | date}}</p>
+        <div>
+            <img src="https://media.tenor.com/K0Mid2YrgoQAAAAC/abomination-shang-chi.gif" class="img-thumbnail">
+        </div>
+        <a href="{{character.urls}}" target="_blank" class="btn btn-outline-danger btn-block">More details...</a>
+        <a routerLink="/characters" class="float-right btn btn-outline-warning">More characters</a>
+    </div>
+</div>

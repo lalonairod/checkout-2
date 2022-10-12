@@ -1,5 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
+import StorageHelper from '../libs/helpers/storage.helper';
+import { Observable } from 'rxjs/internal/Observable';
 
 @Injectable({
   providedIn: 'root'
@@ -11,17 +14,19 @@ export class AuthService {
   public password! : string;
   public token : string = '';
 
-  constructor(private router : Router){}
+  constructor(private router : Router, private http : HttpClient){}
 
-  
-
-  login() {
-    
+  loginForm( username : string, password : string ): Observable<any>{
     this.auth = true;
-    localStorage.setItem('auth', this.auth.toString());
     console.log('Iniciando sesión...');
-    this.router.navigateByUrl('home');
-    
+    return this.http.post('http://ec2-18-116-97-69.us-east-2.compute.amazonaws.com:4001/api/login', 
+    { username, password });
+  }
+
+  refreshToken(){
+    return this.http.post('http://ec2-18-116-97-69.us-east-2.compute.amazonaws.com:4001/api/refresh', {
+      session: StorageHelper.getItem('session')
+    })
   }
 
   logout() {
@@ -38,16 +43,4 @@ export class AuthService {
     this.auth = (localStorage.getItem('auth')?.toLowerCase() == 'true');
   }
 
-  saveSession(username : string, password : string) {
-    this.username = username;
-    this.password = password;
-  }
-
-  getToken(username : string, password : string) : boolean {
-    if (username == 'lalo' && password == '12345')
-    {
-      this.token = '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';
-    }
-    return (this.token != '');
-  }
 }

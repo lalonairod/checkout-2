@@ -1,21 +1,14 @@
-<div class="form">
-    <div class="card-body">
-        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-            <div class="form-group">
-                <label for="username">Username: </label>
-                <input type="text" formControlName="username" class="form-control" autocomplete="new_username" placeholder="" />
+    <div>
+        <div class="loginmodal-container">
+            <h1>Welcome to Your Account</h1>
+            <div align="center">
+                <img src="./assets/img/venom.gif" alt="" width="100px" height="150px">
             </div>
-            <div class="form-group">
-                <label for="password">Password: </label>
-                <input type="password" formControlName="password" class="form-control" autocomplete="new_password" placeholder="" />
-            </div>
-            <button class="btn btn-primary" [disabled]="!loginForm.valid">
-                Login
-            </button>
-            <div *ngIf="error" style="color:red;">
-                {{ error }}
-            </div>
-        </form>
+            <p></p>
+            <form [formGroup]="loginForm">
+                <input type="text" formControlName="username" name="user" placeholder="Username" [(ngModel)]="username">
+                <input type="password" formControlName="password" name="pass" placeholder="Password" [(ngModel)]="password">
+            </form>
+            <input type="submit" name="login" class="btn btn-primary" value="Login" [disabled]="!loginForm.valid" (click)="submit()">
+        </div>
     </div>
-
-    

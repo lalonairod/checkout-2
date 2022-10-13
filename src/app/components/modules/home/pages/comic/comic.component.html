@@ -1,24 +1,27 @@
-<br>
-<button (click)="logout()" class="float-right btn btn-outline-danger">Logout</button>
-
+<a (click)="logout()" class="float-right btn btn-outline-danger">Logout</a>
 <div class="text-center">
-        
+
     <h1 class="titulo">{{title}}: <small>{{comic.title}}</small></h1>
 
 </div>
-    <div class="row">
-        <div class="col-sm-6">
-            <img src="{{comic.thumbnailPath}}.{{comic.thumbnailExtension}}" alt="..." class="img-thumbnail">
-        </div>
-        <div class="col-sm-6">
-
-            <p><strong>DESCRIPTION:</strong> {{comicDesc}}</p>
-            
-            <a href="{{comic.urls}}" target="_blank" class="btn btn-outline-danger btn-block">More Details</a><br>
-
-            <a routerLink="/comics" class="float-right">-Return-</a>
-
-
-        </div>
+<div class="row">
+    <div class="col-sm-6">
+        <img src="{{comic.thumbnailPath}}.{{comic.thumbnailExtension}}" alt="..." class="img-thumbnail">
     </div>
+    <div class="col-sm-6">
 
+        <p><strong>DESCRIPTION:</strong> {{comicDesc}}</p>
+        <p><strong>MODIFIED: </strong> {{comic.modified | date}}</p>
+
+        <br>
+        <div align="center">
+            <a mat-raised-button color="warn" href="{{comic.urls}}" target="_blank"
+                class="btn btn-outline-danger btn-block">More details...</a>
+            <br><br>
+            <a mat-raised-button color="primary" routerLink="/comics"
+                class="float-right btn btn-outline-warning">Return</a>
+        </div>
+
+
+    </div>
+</div>

@@ -1,20 +1,12 @@
 <mat-drawer-container class="menu-container" hasBackdrop="true">
-  <mat-drawer #drawer mode="push" class="menu">
-    <app-navigation-menu></app-navigation-menu>
-  </mat-drawer>
   <mat-drawer-content>
     <mat-toolbar color="primary">
-      <button mat-icon-button aria-label="Menu" (click)="drawer.toggle()">
-        <mat-icon>menu</mat-icon>
-      </button>
-      <img alt="" src="./assets/img/Marvel-Logo.png" height="50px" width="100px">
+      <img alt="" src="./assets/img/Marvel-Logo.png" height="50px" width="100px" routerLink="home">
+      <a class="nav-link" routerLink="home">Home</a>
+      <a class="nav-link" routerLink="characters">Characters</a>
+      <a class="nav-link" routerLink="comics">Comics</a>
+      <a class="nav-link" routerLink="series">Series</a>
       <span class="div-spacer"></span>
-      <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon">
-        <mat-icon>search</mat-icon>
-      </button>
-      <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon">
-        <mat-icon>more_vert</mat-icon>
-      </button>
     </mat-toolbar>
     <router-outlet></router-outlet>
   </mat-drawer-content>

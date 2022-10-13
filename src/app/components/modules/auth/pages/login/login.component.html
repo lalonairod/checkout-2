@@ -1,4 +1,8 @@
     <div>
+        <br>
+        <br>
+    </div>
+    <div>
         <div class="loginmodal-container">
             <h1>Welcome to Your Account</h1>
             <div align="center">
@@ -7,7 +11,9 @@
             <p></p>
             <form [formGroup]="loginForm">
                 <input type="text" formControlName="username" name="user" placeholder="Username" [(ngModel)]="username">
+                <label style="color:red" *ngIf="loginForm.get('username')?.errors && loginForm.get('username')?.touched">* User can't be empty *</label>
                 <input type="password" formControlName="password" name="pass" placeholder="Password" [(ngModel)]="password">
+                <label style="color:red" *ngIf="loginForm.get('password')?.errors && loginForm.get('password')?.touched">* Password can't be empty *</label>
             </form>
             <input type="submit" name="login" class="btn btn-primary" value="Login" [disabled]="!loginForm.valid" (click)="submit()">
         </div>

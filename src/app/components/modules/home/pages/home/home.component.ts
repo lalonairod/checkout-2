@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable, tap } from 'rxjs';
+import { AuthService } from 'src/app/services/auth.service';
 import { MarvelService } from 'src/app/services/marvel.service';
 
 @Component({
@@ -17,7 +18,8 @@ export class HomeComponent implements OnInit {
   character : any = {};
   characterDesc = '';
 
-  constructor(public marvelService: MarvelService, private activatedRoute: ActivatedRoute, private router : Router) { 
+  constructor(private authService : AuthService, 
+    public marvelService: MarvelService, private activatedRoute: ActivatedRoute, private router : Router) { 
     
   }
 
@@ -26,6 +28,7 @@ export class HomeComponent implements OnInit {
   }
 
   logout(){
+    this.authService.logout();
     this.router.navigate(['auth']);
   }
 

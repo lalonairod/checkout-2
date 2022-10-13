@@ -32,6 +32,11 @@ export class MarvelService {
 
   }
 
+  getAllCharacterNameStart(nameStart: string): Observable<Object> {
+    return this.http.get<any>(`${URL_API}/characters?nameStartsWith=${nameStart}?ts=1&apikey=${PUBLIC_KEY}&hash=${HASH}`).pipe(
+      map((response: any) => response.data.results));
+  }
+
   getComics():Observable<any>{
     return this.http.get<any>(`${URL_API}/comics?ts=1&apikey=${PUBLIC_KEY}&hash=${HASH}`).pipe(map((data:any)=>data.data.results));
   }

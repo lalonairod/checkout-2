@@ -29,6 +29,10 @@ export class AuthService {
     })
   }
 
+  flag() : boolean {
+    return !this.auth
+  }
+
   logout() {
     this.auth = false;
     localStorage.clear();

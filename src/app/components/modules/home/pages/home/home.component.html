@@ -1,19 +1,36 @@
+<a (click)="logout()" class="float-right btn btn-outline-danger">Logout</a>
 <div class="text-center">
+    <h1><small>Character of the week</small></h1>
     <h1 class="titulo">{{title}}:<small>{{character.name}}</small></h1>
 </div>
 
 <div class="row">
     <div class="col-sm-6" align="center">
         <img src="{{character.thumbnailPath}}.{{character.thumbnailExtension}}" class="img-thumbnail">
+        <br><br>
+        <a mat-raised-button color="primary" routerLink="/characters" class="btn btn-outline-warning">More characters</a>
     </div>
 
     <div class="col-sm-6">
         <p><strong>DESCRIPTION: </strong> {{characterDesc}}</p>
         <p><strong>MODIFIED: </strong> {{character.modified | date}}</p>
-        <div>
+        <div align="center">
             <img src="https://media.tenor.com/K0Mid2YrgoQAAAAC/abomination-shang-chi.gif" class="img-thumbnail">
+            <br>
         </div>
-        <a href="{{character.urls}}" target="_blank" class="btn btn-outline-danger btn-block">More details...</a>
-        <a routerLink="/characters" class="float-right btn btn-outline-warning">More characters</a>
+        <br><br>
+        <p><strong>CLIP: </strong> This is the first apparition of abomination in a movie. In this part he fights vs The Incredible Hulk</p>
+        <div class="video-responsive">
+            <iframe class="img-thumbnail" src="https://www.youtube.com/embed/g_WVSozgbVM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <br>
+        <div align="center">
+            <a mat-raised-button color="warn" href="{{character.urls}}" target="_blank" class="btn btn-outline-danger btn-block">More details...</a>
+            <br><br>
+        </div>
+        
     </div>
+</div>
+
+<div class="footer">
 </div>

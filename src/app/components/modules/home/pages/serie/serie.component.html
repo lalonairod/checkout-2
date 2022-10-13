@@ -1,6 +1,4 @@
-<br>
-<button (click)="logout()" class="float-right btn btn-outline-danger">Logout</button>
-
+<a (click)="logout()" class="float-right btn btn-outline-danger">Logout</a>
 <div class="text-center">
         
     <h1 class="titulo">{{title}}: <small>{{serie.title}}</small></h1>
@@ -11,12 +9,16 @@
             <img src="{{serie.thumbnailPath}}.{{serie.thumbnailExtension}}" alt="..." class="img-thumbnail">
         </div>
         <div class="col-sm-6">
-
-            <p><strong>DESCRIPTION:</strong> {{serieDesc}}</p>
             
-            <a href="{{serie.urls}}" target="_blank" class="btn btn-outline-danger btn-block">More Details</a><br>
-
-            <a routerLink="/series" class="float-right btn btn-outline-danger btn-warning">Return</a>
+            <p><strong>DESCRIPTION:</strong> {{serieDesc}}</p>
+            <p><strong>MODIFIED: </strong> {{serie.modified | date}}</p>
+            
+            <br>
+        <div align="center">
+            <a mat-raised-button color="warn" href="{{serie.urls}}" target="_blank" class="btn btn-outline-danger btn-block">More details...</a>
+        <br><br>
+        <a mat-raised-button color="primary" routerLink="/series" class="float-right btn btn-outline-warning">Return</a>
+        </div>
 
 
         </div>

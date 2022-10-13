@@ -27,6 +27,7 @@ export class CharacterComponent implements OnInit {
   }
 
   logout(){
+    this.authService.logout();
     this.router.navigate(['auth']);
   }
 

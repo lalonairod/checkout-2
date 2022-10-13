@@ -19,12 +19,12 @@ export class AuthService {
   loginForm( username : string, password : string ): Observable<any>{
     this.auth = true;
     console.log('Iniciando sesión...');
-    return this.http.post('http://ec2-18-116-97-69.us-east-2.compute.amazonaws.com:4001/api/login', 
+    return this.http.post('http://ec2-18-188-194-42.us-east-2.compute.amazonaws.com:4001/api/login', 
     { username, password });
   }
 
   refreshToken(){
-    return this.http.post('http://ec2-18-116-97-69.us-east-2.compute.amazonaws.com:4001/api/refresh', {
+    return this.http.post('http://ec2-18-188-194-42.us-east-2.compute.amazonaws.com:4001/api/refresh', {
       session: StorageHelper.getItem('session')
     })
   }

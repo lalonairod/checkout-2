@@ -10,7 +10,7 @@ import { HomeRoutingModule } from './home-routing.module';
 import { MaterialModule } from 'src/app/shared/material.module';
 import { HomeComponent } from './pages/home/home.component';
 import { FormsModule } from '@angular/forms';
-import { SearchComponent } from './pages/search/search.component';
+
 
 
 
@@ -23,7 +23,6 @@ import { SearchComponent } from './pages/search/search.component';
     SerieComponent,
     SeriesComponent,
     HomeComponent,
-    SearchComponent
   ],
   imports: [
     CommonModule,
